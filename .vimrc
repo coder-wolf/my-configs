@@ -5,7 +5,7 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set smartindent
 set nu
-set nowrap
+set wrap
 set smartcase
 set noswapfile
 set nobackup
@@ -21,9 +21,9 @@ augroup autoindent
 	autocmd BufWritePre * :normal migg=G`i
 augroup End
 
-autocmd filetype python nnoremap <F5> :w <bar> exec '!python '.shellescape('%')<CR>
-autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype python3 nnoremap <F5> :w <bar> exec '!python3 '.shellescape('%')<CR>
+autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc-11 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++-11 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
 "set colorcolumn=80
 
