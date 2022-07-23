@@ -1,5 +1,6 @@
 syntax on
 
+set mouse=a
 set noerrorbells
 set tabstop=4 softtabstop=4
 set shiftwidth=4
@@ -10,6 +11,7 @@ set smartcase
 set noswapfile
 set nobackup
 set encoding=utf-8
+set relativenumber
 set incsearch
 let g:auto_save = 1  " enable AutoSave on Vim startup
 let g:hot_reload_on_save=1
@@ -21,9 +23,10 @@ augroup autoindent
 	autocmd BufWritePre * :normal migg=G`i
 augroup End
 
-autocmd filetype python3 nnoremap <F5> :w <bar> exec '!python3 '.shellescape('%')<CR>
-autocmd filetype c nnoremap <F5> :w <bar> exec '!gcc-11 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++-11 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype python3 nnoremap <F5> :w <bar> exec '!clear && python3 '.shellescape('%')<CR>
+autocmd filetype c nnoremap <F5> :w <bar> exec '!clear && gcc-11 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cpp nnoremap <F5> :w <bar> exec '!clear && g++-11 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype js nnoremap <F5> :w <bar> exec '!clear && g++-11 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 
 "set colorcolumn=80
 
@@ -45,4 +48,3 @@ Plug 'pangloss/vim-javascript'
 
 
 call plug#end()
-
