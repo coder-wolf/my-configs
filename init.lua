@@ -32,6 +32,7 @@ require('packer').startup(function(use)
    	"windwp/nvim-autopairs",
       config = function() require("nvim-autopairs").setup {} end
   }
+  use 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 
   use({
 	"Pocco81/auto-save.nvim",
@@ -97,7 +98,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 
 
 -- Set highlight on search
-vim.o.hlsearch = false
+vim.o.hlsearch = true
 
 -- Make line numbers default
 vim.wo.number = true
@@ -331,7 +332,7 @@ local on_attach = function(_, bufnr)
 end
 
 -- nvim-cmp supports additional completion capabilities
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Enable the following language servers
 local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua' }
@@ -348,11 +349,11 @@ for _, lsp in ipairs(servers) do
 	}
 end
 
-vim.keymap.set('n', '<leader>r', ':RunCode<CR>', { noremap = true, silent = false })
+vim.keymap.set('n', '<C-f>', ':RunCode<CR>', { noremap = true, silent = false })
 vim.keymap.set('n', '<leader>rf', ':RunFile<CR>', { noremap = true, silent = false })
 vim.keymap.set('n', '<leader>rft', ':RunFile tab<CR>', { noremap = true, silent = false })
 vim.keymap.set('n', '<leader>rp', ':RunProject<CR>', { noremap = true, silent = false })
-vim.keymap.set('n', '<leader>c', ':RunClose<CR>', { noremap = true, silent = false })
+vim.keymap.set('n', '<C-c>', ':RunClose<CR>', { noremap = true, silent = false })
 vim.keymap.set('n', '<leader>crf', ':CRFiletype<CR>', { noremap = true, silent = false })
 vim.keymap.set('n', '<leader>crp', ':CRProjects<CR>', { noremap = true, silent = false })
 
@@ -438,4 +439,18 @@ vim.cmd([[set cursorline]])
 ------------------------------------- 
 ------------------------------------- 
 -- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
+-- vim: ts=2 sts=2 sw=2 etc
+--
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = false,
+	underline = false
+    }
+)
+
+
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+
+require'toggle_lsp_diagnostics'.init({ start_on = false })
