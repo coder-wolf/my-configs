@@ -10,3 +10,8 @@ Neovim curr config: [nvChad](https://nvchad.com/)
 ```
 git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
 ```
+
+Quick setup ```.vimrc```:
+```
+curl https://raw.githubusercontent.com/coder-wolf/unix-dotfiles/main/.vimrc -o ~/.vimrc
+```
