@@ -3,6 +3,7 @@
 
 syntax on
 
+set backspace=2
 set mouse=a
 set noerrorbells
 set tabstop=4 softtabstop=4
