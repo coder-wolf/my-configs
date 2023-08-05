@@ -21,10 +21,10 @@ set incsearch
 let g:auto_save = 1  " enable AutoSave on Vim startup
 let g:hot_reload_on_save=1 
 highlight Pmenu ctermbg=gray guibg=gray
-augroup autoindent
-	au!
-	autocmd BufWritePre * :normal migg=G`i
-augroup End
+" augroup autoindent
+" 	au!
+" 	autocmd BufWritePre * :normal migg=G`i
+" augroup End
 
 autocmd filetype python nnoremap <F5> :w <bar> exec '!clear && python '.shellescape('%')<CR>
 autocmd filetype c nnoremap <F5> :w <bar> exec '!clear && gcc-11 '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
