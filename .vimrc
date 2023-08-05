@@ -3,6 +3,7 @@
 
 syntax on
 
+set clipboard=unnamed
 set backspace=2
 set mouse=a
 set noerrorbells
