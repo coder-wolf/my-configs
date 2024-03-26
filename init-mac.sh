@@ -23,7 +23,9 @@ defaults write -g KeyRepeat -int 1
 
 
 # Install apps
-brew install --cask iterm2 easy-move-plus-resize karabiner-elements visual-studio-code google-chrome karabiner-elements bitwarden
+# brew install --cask iterm2 easy-move-plus-resize karabiner-elements visual-studio-code google-chrome karabiner-elements bitwarden
+brew install notion arc notion-calendar visual-studio-code iterm2 spotify whatsapp google-drive skim shottr hiddenbar google-chrome karabiner-elements rectangle easy-move-plus-resize vlc qbittorrent cloudflare-warp flutter ticktick 
+
 
 brew install gh z
 
