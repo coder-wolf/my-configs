@@ -1,6 +1,15 @@
-# My Unix/Linux dotfiles
+## Holding space for my personal config files.
 
-I'm basically using this repo as backup for my dotfiles.
+Here are what I'm storing here at the moment,
+- Config files
+    - Fish shell config
+    - Zsh shell config
+    - Vimrc, vim config
+- Setup script
+    - New mac setup script. (Personal config)
+
+
+I'm basically using this repo as backup for my config files & scripts.
 
 But, feel free to use any of these if you want.
 
